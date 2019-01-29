@@ -38,11 +38,6 @@ app.use((req, res, next) => {
 // });
 
 app.get('/', (req, res) => {
-  // res.send('<h1>Hello Express<h1>');
-  // res.send({
-  //   name: 'ahmed',
-  //   age: 21
-  // });
   res.render('home.hbs', {
     pageTitle: 'Home Page',
     // currentYear: new Date().getFullYear(),

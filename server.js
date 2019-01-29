@@ -4,7 +4,6 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 const port = process.env.PORT || 3000;
-console.log(process.env);
 
 // Making new express app
 const app = express();
@@ -18,9 +17,12 @@ hbs.registerHelper('getCurrentYear', () => {
 
 app.set('view engine', 'hbs');
 
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
+
 app.use(express.static(__dirname + '/public'));
 
-// Register a new middleware
 app.use((req, res, next) => {
   var now = new Date().toLocaleString();
   var log = `${now}: ${req.method} ${req.url}`;
@@ -32,10 +34,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs');
-// });
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {

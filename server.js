@@ -8,7 +8,6 @@ const port = process.env.PORT || 3000;
 // Making new express app
 const app = express();
 
-
 hbs.registerPartials(__dirname + '/views/partials');
 
 hbs.registerHelper('getCurrentYear', () => {
